@@ -1,0 +1,70 @@
+-- Create a database
+CREATE DATABASE IF NOT EXISTS my_database;
+
+-- Use the database
+USE my_database;
+
+-- Create a table 'users'
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) UNIQUE NOT NULL,
+    age INTEGER
+);
+
+-- Insert data into 'users' table
+INSERT INTO users (name, email, age) VALUES ('John Doe', 'john@example.com', 30);
+INSERT INTO users (name, email, age) VALUES ('Jane Doe', 'jane@example.com', 25);
+
+-- Update data in 'users' table
+UPDATE users SET age = 28 WHERE name = 'John Doe';
+
+-- Delete data from 'users' table
+DELETE FROM users WHERE name = 'Jane Doe';
+
+-- Query data from 'users' table
+SELECT * FROM users;
+
+-- Create a table 'products'
+CREATE TABLE IF NOT EXISTS products (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL
+);
+
+-- Insert data into 'products' table
+INSERT INTO products (name, price) VALUES ('Laptop', 999.99);
+INSERT INTO products (name, price) VALUES ('Phone', 599.99);
+
+-- Update data in 'products' table
+UPDATE products SET price = 649.99 WHERE name = 'Phone';
+
+-- Delete data from 'products' table
+DELETE FROM products WHERE name = 'Laptop';
+
+-- Query data from 'products' table
+SELECT * FROM products;
+
+-- Create a table 'orders'
+CREATE TABLE IF NOT EXISTS orders (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    user_id INTEGER,
+    product_id INTEGER,
+    quantity INTEGER,
+    order_date DATE,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+-- Insert data into 'orders' table
+INSERT INTO orders (user_id, product_id, quantity, order_date) VALUES (1, 1, 2, '2024-03-23');
+INSERT INTO orders (user_id, product_id, quantity, order_date) VALUES (1, 2, 1, '2024-03-24');
+
+-- Update data in 'orders' table
+UPDATE orders SET quantity = 3 WHERE id = 1;
+
+-- Delete data from 'orders' table
+DELETE FROM orders WHERE id = 2;
+
+-- Query data from 'orders' table
+SELECT * FROM orders;
