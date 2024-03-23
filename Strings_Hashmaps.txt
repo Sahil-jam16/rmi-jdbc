@@ -1,0 +1,124 @@
+import java.util.*;
+
+public class StringHashMapOperations {
+
+    public static void main(String[] args) {
+        
+        // String Operations
+        stringOperations();
+        
+        // HashMap Operations
+        hashMapOperations();
+    }
+
+    public static void stringOperations() {
+        // Creation
+        String str = "Hello, World!";
+        System.out.println("Original String: " + str);
+
+        // Concatenation
+        String str1 = "Hello";
+        String str2 = "World";
+        String concatenated = str1 + " " + str2;
+        System.out.println("Concatenated String: " + concatenated);
+
+        // Length
+        int length = str.length();
+        System.out.println("Length of String: " + length);
+
+        // Substring
+        String sub = str.substring(0, 5);
+        System.out.println("Substring: " + sub);
+
+        // Replace
+        String replaced = str.replace("World", "Java");
+        System.out.println("Replaced String: " + replaced);
+
+        // Uppercase and Lowercase
+        String upper = str.toUpperCase();
+        String lower = str.toLowerCase();
+        System.out.println("Uppercase String: " + upper);
+        System.out.println("Lowercase String: " + lower);
+
+        // Split
+        String[] parts = str.split(", ");
+        System.out.println("Split String: " + Arrays.toString(parts));
+
+        // Trim
+        String trimmed = "  Hello, World!  ".trim();
+        System.out.println("Trimmed String: " + trimmed);
+
+        // Compare
+        boolean isEqual = str.equals("Hello, World!");
+        System.out.println("Is Equal: " + isEqual);
+
+        // Check Contains
+        boolean contains = str.contains("Hello");
+        System.out.println("Contains 'Hello': " + contains);
+
+        // Index of a character
+        int index = str.indexOf('o');
+        System.out.println("Index of 'o': " + index);
+
+        // Check if Empty
+        boolean isEmpty = str.isEmpty();
+        System.out.println("Is Empty: " + isEmpty);
+    }
+
+    public static void hashMapOperations() {
+        // Creation
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("one", 1);
+        map.put("two", 2);
+        System.out.println("\nOriginal HashMap: " + map);
+
+        // Access Value
+        int value = map.get("one");
+        System.out.println("Value for key 'one': " + value);
+
+        // Check Key Existence
+        boolean containsKey = map.containsKey("one");
+        System.out.println("Contains key 'one': " + containsKey);
+
+        // Check Value Existence
+        boolean containsValue = map.containsValue(1);
+        System.out.println("Contains value '1': " + containsValue);
+
+        // Remove Key-Value Pair
+        map.remove("one");
+        System.out.println("HashMap after removing 'one': " + map);
+
+        // Size of Map
+        int size = map.size();
+        System.out.println("Size of HashMap: " + size);
+
+        // Check if Map is Empty
+        boolean isEmptyMap = map.isEmpty();
+        System.out.println("Is HashMap Empty: " + isEmptyMap);
+
+        // Get All Keys
+        Set<String> keys = map.keySet();
+        System.out.println("Keys in HashMap: " + keys);
+
+        // Get All Values
+        Collection<Integer> values = map.values();
+        System.out.println("Values in HashMap: " + values);
+
+        // Iterate through Map
+        System.out.println("Iterating through HashMap:");
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
+        // Clear Map
+        map.clear();
+        System.out.println("HashMap after clearing: " + map);
+
+        // Sorting
+        TreeMap<String, Integer> sortedMap = new TreeMap<>(map);
+        sortedMap.put("three", 3);
+        sortedMap.put("one", 1);
+        sortedMap.put("two", 2);
+        System.out.println("Sorted HashMap: " + sortedMap);
+    }
+}
